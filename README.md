@@ -1,25 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+経験シェアサービス
+概要
+Growth！は、あなたのDIC卒業後の成長を加速させます。							
+エンジニアとしての経験をシェアして、ユーザーとWin-Winの関係を構築します。							
+エンジニア側は、ユーザーへ特定の経験を販売して収入を得ます。							
+ユーザー側は、先輩達の経験から学び成長を加速させます。							
 
-Things you may want to cover:
+コンセプト
+エンジニアと駆け出しエンジニアのWin-Winの関係を構築
 
-* Ruby version
+バージョン
+Ruby 2.６.３ Rails 5.2.４
 
-* System dependencies
+機能一覧
 
-* Configuration
+* ログイン機能
+*  ユーザー登録機能
+    *  メールアドレス、名前、パスワードは必須
+*  パスワード再設定機能
+*  投稿一覧表示機能
+    *  コメント数を表示
+    *  お気に入り数を表示
+*  投稿機能
+    *  タイトルと記事内容は必須
+*  投稿編集機能
+*  投稿削除機能
+    *  投稿編集と投稿削除は投稿者のみ実行可能
+*  投稿お気に入り機能
+    *  投稿のお気に入りについては1つのブログに対して1人1回しかできない
+    *  自分自身のブログにはお気に入りできない
+*  コメント投稿機能
+*  コメント削除機能
+*  コメント編集機能
+    *  コメント編集とコメント削除はコメントした本人のみ可能
+*  コメント機能とお気に入り機能についてはページ遷移なしで実行できる
+* Twitter等と連携し、投稿一覧画面から一括して見られる
+* エンジニア側は、指定した記事を有料設定にする事が出来る
+* チャット機能で会話が可能
+　
+カタログ設計
 
-* Database creation
 
-* Database initialization
+テーブル定義
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+画面遷移図
 
-* Deployment instructions
 
-* ...
-# graduate_work
+画面ワイヤーフレーム
+
+
+使用予定Gem
+carrierwave
+mini_magick
+devise
