@@ -1,0 +1,23 @@
+<h1>投稿一覧</h1>
+<p><%= notice %></p>
+<% if current_user.try(:admin?) %>
+  <h1>articles_admin</h1>
+<% else %>
+  <h1>articles</h1>
+<% end %>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.title %></td>
+    <td><%= article.content %></td>
+    <td><%= link_to '詳細を確認する', article_path(article.id) %></td>
+    <td><%= link_to "ブログを編集する", edit_article_path(article.id) %></td>
+    <td><%= link_to 'ブログを削除する', article_path(article.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しくブログを投稿する', new_article_path %>

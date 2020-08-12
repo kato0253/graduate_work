@@ -57,4 +57,4 @@ https://docs.google.com/spreadsheets/d/1bX9LQhBIdVDFHzxH2S1Z4Loga2PiAdJLsBN2ASlx
 ## 使用予定Gem
 carrierwave
 mini_magick
-devise
+devise 
