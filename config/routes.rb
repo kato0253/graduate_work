@@ -19,4 +19,9 @@ Rails.application.routes.draw do
       patch :confirm
     end
   end
+
+  resources :articles do
+    resources :comments
+  end
+
 end

@@ -25,6 +25,11 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @favorite = current_user.favorites.find_by(article_id: @article.id)
+    @comments = @article.comments
+# 　  @comment = @article.comments.build
+    @comment = @article.comments.build
+    # @comment = Comment.new(article_params)
+    # @omment.user_id = current_user.id
   end
 
   def edit
