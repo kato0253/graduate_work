@@ -48,7 +48,10 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    redirect_to articles_path, notice:"削除しました！"
+    respond_to do |format|
+      flash.now[:notice] = 'コメントが削除されました'
+      format.js { render :index }
+    end
   end
 
   def confirm
