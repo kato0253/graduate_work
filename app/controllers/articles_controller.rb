@@ -6,11 +6,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   def create
-    @article = Article.create(article_params)
+    @article = current_user.articles.build(article_params)
     if params[:back]
       render :new
     else
@@ -26,10 +26,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @favorite = current_user.favorites.find_by(article_id: @article.id)
     @comments = @article.comments
-# 　  @comment = @article.comments.build
+    #@comment = @article.comments.build
     @comment = @article.comments.build
     # @comment = Comment.new(article_params)
     # @omment.user_id = current_user.id
+    @count = Favorite.where(article_id: @article.id).count
   end
 
   def edit

@@ -6,6 +6,7 @@
   <h1>articles</h1>
 <% end %>
 <table>
+
   <tr>
     <th>タイトル</th>
     <th>内容</th>
@@ -13,7 +14,9 @@
 <% @articles.each do |article| %>
   <tr>
     <td><%= article.title %></td>
+    <%= article.comments.size %>
     <td><%= article.content %></td>
+
     <td><%= link_to '詳細を確認する', article_path(article.id) %></td>
     <td><%= link_to "ブログを編集する", edit_article_path(article.id) %></td>
     <td><%= link_to 'ブログを削除する', article_path(article.id), method: :delete %></td>
