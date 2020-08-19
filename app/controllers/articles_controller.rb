@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     #@comment = @article.comments.build
     @comment = @article.comments.build
     # @comment = Comment.new(article_params)
-    # @omment.user_id = current_user.id
+    # @comment.user_id = current_user.id
     @count = Favorite.where(article_id: @article.id).count
   end
 
@@ -51,6 +51,7 @@ class ArticlesController < ApplicationController
     @article.destroy
     respond_to do |format|
       flash.now[:notice] = 'コメントが削除されました'
+      format.all
       format.js { render :index }
     end
   end
@@ -63,7 +64,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:id, :title, :content)
+    params.require(:article).permit(:title, :content ,:id)
   end
 
 end

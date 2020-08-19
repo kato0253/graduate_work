@@ -44,14 +44,11 @@ class CommentsController < ApplicationController
       format.js { render :index }
     end
   end
-  def index
-  #   @comment = Comment.all
-  @comment = comment.find(params[:id])
-  end
+
   private
   # ストロングパラメーター
   def comment_params
-    params.require(:comment).permit(:article_id, :content, :user_id)
+    params.require(:comment).permit(:article_id, :content)
   end
   def set_blog
     @article = Article.find(params[:article_id])

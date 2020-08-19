@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  get 'address/show'
   root to: 'other_pages#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -26,4 +27,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :posts
+    end
+  end
 end
