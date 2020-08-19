@@ -7,6 +7,9 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
