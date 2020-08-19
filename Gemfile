@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 
