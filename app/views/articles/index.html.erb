@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+<%# <%= link_to "投稿", articles_path %>
+<%= link_to '新しく投稿する', new_article_path %>
+<%# <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "新規登録", new_user_registration_path %>
+<%= link_to "ログイン", new_user_session_path %>
+<% end %>
+<% if current_user.try(:admin?) %>
+  <h1>管理者用投稿一覧</h1>
+<% else %>
+  <h1>投稿一覧</h1>
+<% end %>
+<table>
+  <tr>
+    <th>投稿者</th>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>コメント数</th>
+  </tr>
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.user %></td>
+    <td><%= article.title %></td>
+    <td><%= article.content %></td>
+    <td><%= image_tag article.image.url unless article.image.blank? %></td>
+    <td><%= article.comments.size %></td>
+    <td><%= link_to '詳細を確認する', article_path(article.id) %></td>
+    <td><%= link_to "投稿を編集する", edit_article_path(article.id) %></td>
+    <td><%= link_to '投稿を削除する', article_path(article.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
